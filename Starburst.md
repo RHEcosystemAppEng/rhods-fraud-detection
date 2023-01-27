@@ -1,4 +1,4 @@
-# Fraud detection in RHODS using Starbust Enterprise
+# Fraud detection in RHODS using Starburst Enterprise
 
 ##### Requirements:
 
@@ -7,7 +7,7 @@
 - Write access to your own Amazon S3 bucket
 - Access to the [original dataset](https://drive.google.com/file/d/1YhmV3vPbFe-JXU_biwvaizV0WGhAegH1/view)
 
-#### What is Trino and Starbust Enterprise?
+#### What is Trino and Starburst Enterprise?
 
 Trino (formerly Presto® SQL) is the fastest open source, massively parallel
 processing SQL query engine designed for analytics of large datasets distributed
@@ -32,11 +32,11 @@ file [creditcard_with_empty_values.csv](https://drive.google.com/file/d/1YhmV3vP
 to a bucket called `<PASTE_HERE_YOUR_BUCKET_NAME>/data`. In this example, we will name it `rhods-fraud-detection`.
 Your AWS credentials **must** have read and write access to this bucket.
 
-#### Set credentials and configure Starbust Enterprise
+#### Set credentials and configure Starburst Enterprise
 
 
 1. Go to the configs directory `cd ./configs`
-2. Update the [01_starbust_licence.yaml](configs/01_starbust_licence.yaml) file with your own Startbust Enterprise license. 
+2. Update the [01_starburst_licence.yaml](configs/01_starburst_licence.yaml) file with your own Startbust Enterprise license. 
 3. Update the [02_aws_credentials.yaml](configs/02_aws_credentials.yaml) file with your own Amazon credentials.
 4. Apply the configuration files `cat *.yaml | oc apply -f -`
 
@@ -49,15 +49,15 @@ secret/starburstdata created
 secret/aws-credentials created
 starburstenterprise.charts.starburstdata.com/starburstenterprise created
 starbursthive.charts.starburstdata.com/starbursthive created
-route.route.openshift.io/starbust-web created
+route.route.openshift.io/starburst-web created
 ```
 
 </details>
 
 #### Working from the SEP WebUI
 
-Log into the Web console of your Starbust Enterprise instance. After exposing it
-with a route, it should be available through the URL `http://starbust-web.<cluster_url>/ui/insights/ide`
+Log into the Web console of your Starburst Enterprise instance. After exposing it
+with a route, it should be available through the URL `http://starburst-web.<cluster_url>/ui/insights/ide`
 and the configured credentials (`default user: admin`).
 
 At this point, you should see the query editor in the web ui
@@ -70,7 +70,7 @@ At this point, you should see the query editor in the web ui
 CREATE SCHEMA s3.fraud WITH (location = 's3://rhods-fraud-detection/data');
 ```
 
-#### Queries to read and write using Starbust Enterprise
+#### Queries to read and write using Starburst Enterprise
 
 <details>
     <summary>Create a table reading the original dataset from S3</summary>
