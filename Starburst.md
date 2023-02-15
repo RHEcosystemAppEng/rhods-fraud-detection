@@ -3,7 +3,7 @@
 ##### Requirements:
 
 - RHODS working cluster with administrator access
-- Startbust Enterprise licence
+- Startburst Enterprise licence
 - Write access to your own Amazon S3 bucket
 - Access to the [original dataset](https://drive.google.com/file/d/1YhmV3vPbFe-JXU_biwvaizV0WGhAegH1/view)
 
