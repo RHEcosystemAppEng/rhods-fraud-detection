@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS s3.fraud.original
     amount   VARCHAR,
     class VARCHAR
 ) WITH ( 
-    external_location = 's3a://rhods-fraud-detection/data/',
+    external_location = 's3://rhods-fraud-detection/data/',
     skip_header_line_count = 1,
     format = 'csv'
 );
@@ -135,7 +135,7 @@ SELECT * FROM s3.fraud.original;
 ```SQL
 CREATE TABLE IF NOT EXISTS s3.fraud.clean
     WITH (
-        external_location = 's3a://rhods-fraud-detection/clean/',
+        external_location = 's3://rhods-fraud-detection/clean/',
         format = 'csv',
         skip_header_line_count=1
         ) AS (
