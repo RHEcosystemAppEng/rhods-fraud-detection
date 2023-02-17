@@ -2,9 +2,9 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: starbust-web
+  name: starburst-web
 spec:
-  subdomain: starbust-web
+  subdomain: starburst-web
   to:
     kind: Service
     name: starburst

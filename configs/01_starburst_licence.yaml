@@ -5,6 +5,6 @@ metadata:
   name: starburstdata
 data:
   starburstdata.license: >-
-    <insert your Starbust Enterprise license json string encoded with Base64>
+    <insert your Starburst Enterprise license json string encoded with Base64>
 type: Opaque
 
