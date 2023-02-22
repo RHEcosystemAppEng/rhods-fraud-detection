@@ -67,7 +67,7 @@ At this point, you should see the query editor in the web ui
 #### Create the schema
 
 ```sql
-CREATE SCHEMA s3.fraud WITH (location = 's3://rhods-fraud-detection/data');
+CREATE SCHEMA s3.fraud WITH (location = 's3a://rhods-fraud-detection/data');
 ```
 
 #### Queries to read and write using Starburst Enterprise
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS s3.fraud.original
     amount   VARCHAR,
     class VARCHAR
 ) WITH ( 
-    external_location = 's3://rhods-fraud-detection/data/',
+    external_location = 's3a://rhods-fraud-detection/data/',
     skip_header_line_count = 1,
     format = 'csv'
 );
@@ -130,12 +130,22 @@ SELECT * FROM s3.fraud.original;
 </details>
 <br/>
 <details>
+    <summary>Set session variable</summary>
+
+```SQL
+SHOW SESSION LIKE 'writer_%';
+SET SESSION writer_min_size = '160MB';
+```
+
+</details>
+<br/>
+<details>
     <summary>Create a second table with only the filtered rows</summary>
 
 ```SQL
 CREATE TABLE IF NOT EXISTS s3.fraud.clean
     WITH (
-        external_location = 's3://rhods-fraud-detection/clean/',
+        external_location = 's3a://rhods-fraud-detection/clean/',
         format = 'csv',
         skip_header_line_count=1
         ) AS (
@@ -181,8 +191,7 @@ CREATE TABLE IF NOT EXISTS s3.fraud.clean
 </details>
 
 **Result:** Now you can verify that the S3 bucket `rhods-fraud-detection/clean`, 
-contains a new file with fewer rows than the original source. **Please, copy the
-filename because it will be required to continue in the JupyterHub notebook.**
+contains a new file with fewer rows than the original source.
 
 ![S3 Clean csv file](./images/s3_clean_csv_file.png)
 
