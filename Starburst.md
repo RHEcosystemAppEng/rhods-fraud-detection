@@ -195,4 +195,4 @@ contains a new file with fewer rows than the original source.
 
 ![S3 Clean csv file](./images/s3_clean_csv_file.png)
 
-#### Go back to the [Notebook.ipynb](Notebook.ipynb) and continue with the process.
+#### Go back to the [Notebook.ipynb](./Notebook.ipynb) and continue with the process.
