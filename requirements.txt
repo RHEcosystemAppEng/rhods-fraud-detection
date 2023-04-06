@@ -1,7 +1,6 @@
 imbalanced-learn==0.10.1
 seaborn==0.12.2
 onnx==1.12.0
-opencv-python==4.7.0.68
 openvino==2022.3.0
 openvino-dev==2022.3.0
 openvino-telemetry==2022.3.0
