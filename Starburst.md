@@ -3,9 +3,9 @@
 ##### Requirements:
 
 - RHODS working cluster with administrator access
-- Startburst Enterprise licence
-- Write access to your own Amazon S3 bucket
-- Access to the [original dataset](https://drive.google.com/file/d/1YhmV3vPbFe-JXU_biwvaizV0WGhAegH1/view)
+- Startburst Enterprise licence [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
+- Write access to your own Amazon S3 bucket [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
+- Access to the [original dataset](https://drive.google.com/file/d/1YhmV3vPbFe-JXU_biwvaizV0WGhAegH1/view) [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
 #### What is Trino and Starburst Enterprise?
 
@@ -23,54 +23,57 @@ In this document we will cover how to work with the data of the fraud-detection
 example with SQL-like queries and an instance of SEP running in the Red Hat
 Openshift Data Science cluster.
 
-### Steps
+### Steps:
 
-#### Store the original data in S3
+1. Store the original data in S3 [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
-Upload the
+    Upload the
 file [creditcard_with_empty_values.csv](https://drive.google.com/file/d/1YhmV3vPbFe-JXU_biwvaizV0WGhAegH1/view)
 to a bucket called `<PASTE_HERE_YOUR_BUCKET_NAME>/data`. In this example, we will name it `rhods-fraud-detection`.
 Your AWS credentials **must** have read and write access to this bucket.
 
-#### Set credentials and configure Starburst Enterprise
+2. Set credentials and configure Starburst Enterprise [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
 
-1. Go to the configs directory `cd ./configs`
-2. Update the [01_starburst_licence.yaml](configs/01_starburst_licence.yaml) file with your own Startbust Enterprise license. 
-3. Update the [02_aws_credentials.yaml](configs/02_aws_credentials.yaml) file with your own Amazon credentials.
-4. Apply the configuration files `cat *.yaml | oc apply -f -`
+    1. Go to the configs directory `cd ./configs`
+    2. Update the [01_starburst_licence.yaml](configs/01_starburst_licence.yaml) file with your own Startbust Enterprise license. 
+    3. Update the [02_aws_credentials.yaml](configs/02_aws_credentials.yaml) file with your own Amazon credentials.
+    4. Apply the configuration files `cat *.yaml | oc apply -f -`
+        <details>
+            <summary>Expected output</summary>
+        
+        ```bash
+        $: cat *.yaml | oc apply -f -
+        secret/starburstdata created
+        secret/aws-credentials created
+        starburstenterprise.charts.starburstdata.com/starburstenterprise created
+        starbursthive.charts.starburstdata.com/starbursthive created
+        route.route.openshift.io/starburst-web created
+        ```
+        </details>
 
-<details>
-    <summary>Expected output</summary>
+3. Working from the Starburst Web UI
 
-```bash
-$: cat *.yaml | oc apply -f -
-secret/starburstdata created
-secret/aws-credentials created
-starburstenterprise.charts.starburstdata.com/starburstenterprise created
-starbursthive.charts.starburstdata.com/starbursthive created
-route.route.openshift.io/starburst-web created
-```
+    If you are using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link) then the UI link is in the email which you receive after provisioning.
 
-</details>
-
-#### Working from the SEP WebUI
-
-Log into the Web console of your Starburst Enterprise instance. After exposing it
-with a route, it should be available through the URL `http://starburst-web.<cluster_url>/ui/insights/ide`
-and the configured credentials (`default user: admin`).
-
-At this point, you should see the query editor in the web ui
+    Otherwise, log into the Web console of your Starburst Enterprise instance. After exposing it
+    with a route, it should be available through the URL `http://starburst-web.<cluster_url>/ui/insights/ide`
+    and the configured credentials (`default user: admin`). At this point, you should see the query editor in the web ui
 
 ![SEP Web UI](./images/sep_webui.png)
 
-#### Create the schema
+4. Queries to read and write using Starburst Enterprise
+> **Note:** 
+> 1. Please click the arrow &#x25B6; below to view and/or copy the query
+> 2. Please put your own s3 bucket name in the below queries by changing the placeholder "CHANGE-THIS-BUCKET-NAME". If you are using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link) then the bucket name is in the email which you received after provisioning.
 
-```sql
-CREATE SCHEMA s3.fraud WITH (location = 's3a://rhods-fraud-detection/data');
+<details>
+    <summary>Create the schema</summary>
+
+```SQL
+CREATE SCHEMA s3.fraud WITH (location = 's3a://CHANGE-THIS-BUCKET-NAME/data');
 ```
-
-#### Queries to read and write using Starburst Enterprise
+</details>
 
 <details>
     <summary>Create a table reading the original dataset from S3</summary>
@@ -110,25 +113,24 @@ CREATE TABLE IF NOT EXISTS s3.fraud.original
     amount   VARCHAR,
     class VARCHAR
 ) WITH ( 
-    external_location = 's3a://rhods-fraud-detection/data/',
+    external_location = 's3a://CHANGE-THIS-BUCKET-NAME/data/',
     skip_header_line_count = 1,
     format = 'csv'
 );
 ```
 
 </details>
-<br/>
+
 <details>
     <summary> Verify you can read the original data loaded into SEP</summary>
 
-```sql
+```SQL
 SELECT * FROM s3.fraud.original;
 ```
 
 ![SEP Web UI](./images/sep_webui_reading.png)
-
 </details>
-<br/>
+
 <details>
     <summary>Set session variable</summary>
 
@@ -138,14 +140,14 @@ SET SESSION writer_min_size = '160MB';
 ```
 
 </details>
-<br/>
+
 <details>
     <summary>Create a second table with only the filtered rows</summary>
 
 ```SQL
 CREATE TABLE IF NOT EXISTS s3.fraud.clean
     WITH (
-        external_location = 's3a://rhods-fraud-detection/clean/',
+        external_location = 's3a://CHANGE-THIS-BUCKET-NAME/clean/',
         format = 'csv',
         skip_header_line_count=1
         ) AS (
