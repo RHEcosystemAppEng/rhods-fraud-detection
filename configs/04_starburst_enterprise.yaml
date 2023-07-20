@@ -16,6 +16,8 @@ spec:
   envFrom:
     - secretRef:
         name: aws-credentials
+    - secretRef:
+        name: postgres-credentials
   catalogs:
     s3: |-
       connector.name=hive
@@ -26,10 +28,21 @@ spec:
       hive.allow-drop-table=true
       hive.metastore-cache-ttl=60m
       hive.compression-codec=none
+      materialized-views.enabled=true
+      materialized-views.namespace=mv
+      materialized-views.storage-schema=mvstorage
+      cache-service.uri=http://coordinator.starburst.svc.cluster.local:8180
+    postgres: |-
+      connector.name=postgresql
+      connection-url=jdbc:postgresql://${ENV:POSTGRES_HOST}:${ENV:POSTGRES_PORT}/
+      connection-password=${ENV:POSTGRES_PASSWORD}
+      connection-user=${ENV:POSTGRES_USER}
   coordinator:
     envFrom:
       - secretRef:
           name: aws-credentials
+      - secretRef:
+          name: postgres-credentials
     heapHeadroomPercentage: 30
     heapSizePercentage: 90
     nodeMemoryHeadroom: 1Gi
@@ -77,6 +90,12 @@ spec:
           plugin.dir=/usr/lib/starburst/plugin
           node.server-log-file=/var/log/starburst/server.log
           node.launcher-log-file=/var/log/starburst/launcher.log
+        cache.properties:
+          service-database.user=postgres
+          service-database.password=postgres
+          service-database.jdbc-url=jdbc:postgresql://postgresql.starburst.svc.cluster.local:5432/
+          starburst.user=user
+          starburst.jdbc-url=jdbc:trino://coordinator:8080
     resources:
       limits:
         cpu: 0.5
