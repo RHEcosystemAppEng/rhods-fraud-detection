@@ -10,13 +10,15 @@ content, you will become familiar with the OpenShift Data Science offering and
 common workflows to use with it. This repo uses RHODS ModelMesh to deploy the
 model which uses OpenVino Model Server (OVMS) under the hood.
 
+This version of the demonstration showcases several important tools for data science workflows in Starburst. The demonstration covers reading/writing from AWS S3, writing federated queries from multiple data sources, and utilizing materialized views.
+
 ## Access OpenShift Data Science
 **IMPORTANT!!**
 
 In order to use the content in this repository, you need to already have access
 to an OpenShift Data Science environment. You can have access in two ways:
 1. Bring your own Openshift (BYOO) cluster and then [install](https://access.redhat.com/documentation/en-us/red_hat_openshift_data_science_self-managed/1.28/html/installing_openshift_data_science_self-managed/installing-openshift-data-science-on-openshift-container-platform_install) RHODS in it.
-2. Another and the easier way would be to use Red Hat Demo Platoform (RHDP) and provision this [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link). This workshop will install RHODS, Starburst, setup S3 bucket with data and setup Starburst with a proper license to access it. When using workshop make sure to skip the optional steps throught this repository which are marked with the phrase "optional when using demo.redhat.com ..."
+2. Another and the easier way would be to use Red Hat Demo Platoform (RHDP) and provision this [workshop](#TODO: create and publish RHDP cluster). This workshop will install RHODS, Starburst, setup S3 bucket with data and setup Starburst with a proper license to access it. When using workshop make sure to skip the optional steps throught this repository which are marked with the phrase "optional when using demo.redhat.com ..."
 
 Using the access credentials provided
 to you, log into the OpenShift Data Science portal by following the _ODS
@@ -63,7 +65,7 @@ Click the Git icon and then click _Clone a Repository_.
 In the window that pops up, copy the Git URL for this repository and paste it into the box:
 
 ```
-https://github.com/RHEcosystemAppEng/rhods-fraud-detection
+https://github.com/aceriverson/rhods-fraud-detection
 ```
 
 Then, click _CLONE_.
