@@ -91,8 +91,8 @@ spec:
           node.server-log-file=/var/log/starburst/server.log
           node.launcher-log-file=/var/log/starburst/launcher.log
         cache.properties:
-          service-database.user=postgres
-          service-database.password=postgres
+          service-database.user=starburst
+          service-database.password=starburst
           service-database.jdbc-url=jdbc:postgresql://postgresql.starburst.svc.cluster.local:5432/
           starburst.user=user
           starburst.jdbc-url=jdbc:trino://coordinator:8080
