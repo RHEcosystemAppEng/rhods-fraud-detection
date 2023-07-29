@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS s3.fraud.features
     v25      VARCHAR,
     v26      VARCHAR,
     v27      VARCHAR,
-    v28      VARCHAR,
+    v28      VARCHAR
 ) WITH ( 
     external_location = 's3a://CHANGE-THIS-BUCKET-NAME/data/',
     skip_header_line_count = 1,
