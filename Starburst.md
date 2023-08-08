@@ -3,10 +3,10 @@
 ##### Requirements:
 
 - RHODS working cluster with administrator access
-- Startburst Enterprise licence [optional when using demo.redhat.com [workshop](# TODO: create and publish RHDP cluster)]
-- Write access to your own Amazon S3 bucket [optional when using demo.redhat.com [workshop](# TODO: create and publish RHDP cluster)]
-- Access to a PostgreSQL instance and user with SELECT, INSERT, and CREATE permissions [optional when using demo.redhat.com [workshop](# TODO create and publish RHDP cluster)]
-- Access to the [original dataset](# TODO: upload features/transactions csvs) [optional when using demo.redhat.com [workshop](# TODO: create and publish RHDP cluster)]
+- Startburst Enterprise licence [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
+- Write access to your own Amazon S3 bucket [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
+- Access to a PostgreSQL instance and user with SELECT, INSERT, and CREATE permissions [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
+- Access to the [original dataset](#TODO: upload features/transactions csvs) [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
 #### What is Trino and Starburst Enterprise?
 
@@ -28,14 +28,14 @@ We will take advantage of several powerful features of Starburst. We will cover 
 
 ### Steps:
 
-1. Store the features data in S3 [optional when using demo.redhat.com [workshop](# TODO: create and deploy RHDP cluster)]
+1. Store the features data in S3 [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
     Upload the
 file [features.csv](# TODO: upload features.csv)
 to a bucket called `<PASTE_HERE_YOUR_BUCKET_NAME>/data`. In this example, we will name it `rhods-fraud-detection`.
 Your AWS credentials **must** have read and write access to this bucket.
 
-2. Store the transactions data in Postgres [optional when using demo.redhat.com [workshop](# TODO: create and deploy RHDP cluster)]
+2. Store the transactions data in Postgres [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
     With the file [transactions.csv](# TODO: upload transactions.csv) downloaded, execute the following queries in the psql command line tool
 
@@ -55,7 +55,7 @@ Your AWS credentials **must** have read and write access to this bucket.
       CSV HEADER;
     ```
 
-3. Set credentials and configure Starburst Enterprise [optional when using demo.redhat.com [workshop](# TODO: create and publish RHDP cluster)]
+3. Set credentials and configure Starburst Enterprise [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
 
     1. Go to the configs directory `cd ./configs`
@@ -84,7 +84,7 @@ Your AWS credentials **must** have read and write access to this bucket.
 
 4. (Optional\*) Working from the Starburst Web UI
 
-    If you are using demo.redhat.com [workshop](# TODO: create and publish RHDP cluster) then the UI link is in the email which you receive after provisioning.
+    If you are using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link) then the UI link is in the email which you receive after provisioning.
 
     Otherwise, log into the Web console of your Starburst Enterprise instance. After exposing it
     with a route, it should be available through the URL `http://starburst-web.<cluster_url>/ui/insights/ide`
@@ -96,7 +96,7 @@ Your AWS credentials **must** have read and write access to this bucket.
 5. (Optional\*) Queries to read and write using Starburst Enterprise
 > **Note:** 
 > 1. Please click the arrow &#x25B6; below to view and/or copy the query
-> 2. Please put your own s3 bucket name in the below queries by changing the placeholder "CHANGE-THIS-BUCKET-NAME". If you are using demo.redhat.com [workshop](# TODO: create and publish RHDP cluster) then the bucket name is in the email which you received after provisioning.
+> 2. Please put your own s3 bucket name in the below queries by changing the placeholder "CHANGE-THIS-BUCKET-NAME". If you are using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link) then the bucket name is in the email which you received after provisioning.
 
 <details>
     <summary>Create the schema</summary>
