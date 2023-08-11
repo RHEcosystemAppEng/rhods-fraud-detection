@@ -10,6 +10,8 @@ content, you will become familiar with the OpenShift Data Science offering and
 common workflows to use with it. This repo uses RHODS ModelMesh to deploy the
 model which uses OpenVino Model Server (OVMS) under the hood.
 
+This version of the demonstration showcases several important tools for data science workflows in Starburst. The demonstration covers reading/writing from AWS S3, writing federated queries from multiple data sources, and utilizing materialized views.
+
 ## Access OpenShift Data Science
 **IMPORTANT!!**
 
@@ -63,7 +65,7 @@ Click the Git icon and then click _Clone a Repository_.
 In the window that pops up, copy the Git URL for this repository and paste it into the box:
 
 ```
-https://github.com/RHEcosystemAppEng/rhods-fraud-detection
+https://github.com/aceriverson/rhods-fraud-detection
 ```
 
 Then, click _CLONE_.
