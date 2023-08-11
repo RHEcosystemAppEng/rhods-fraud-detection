@@ -6,7 +6,7 @@
 - Startburst Enterprise licence [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 - Write access to your own Amazon S3 bucket [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 - Access to a PostgreSQL instance and user with SELECT, INSERT, and CREATE permissions [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
-- Access to the [original dataset](#TODO: upload features/transactions csvs) [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
+- Access to the [original dataset](https://gpte-public.s3.amazonaws.com/creditcard_with_empty_values.tar.gz) [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
 #### What is Trino and Starburst Enterprise?
 
@@ -31,13 +31,13 @@ We will take advantage of several powerful features of Starburst. We will cover 
 1. Store the features data in S3 [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
     Upload the
-file [features.csv](# TODO: upload features.csv)
+file [features.csv](https://gpte-public.s3.amazonaws.com/creditcard_with_empty_values.tar.gz)
 to a bucket called `<PASTE_HERE_YOUR_BUCKET_NAME>/data`. In this example, we will name it `rhods-fraud-detection`.
 Your AWS credentials **must** have read and write access to this bucket.
 
 2. Store the transactions data in Postgres [optional when using demo.redhat.com [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link)]
 
-    With the file [transactions.csv](# TODO: upload transactions.csv) downloaded, execute the following queries in the psql command line tool
+    With the file [transactions.csv](https://gpte-public.s3.amazonaws.com/creditcard_with_empty_values.tar.gz) downloaded, execute the following queries in the psql command line tool
 
     ```sql
     CREATE TABLE transactions (
