@@ -215,6 +215,14 @@ JOIN t2 ON t1.id = CAST(t2.id AS varchar);
 
 </details>
 
+<details>
+    <summary>Verify you can read the combined and cleaned data from the materialized view</summary>
+
+```SQL
+SELECT * FROM s3.fraud.data;
+```
+</details>
+
 <!-- **Result:** Now you can verify that the S3 bucket `rhods-fraud-detection/clean`, 
 contains a new file with fewer rows than the original source.
 
