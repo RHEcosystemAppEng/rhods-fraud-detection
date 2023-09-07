@@ -6,9 +6,8 @@ click _Add data connection_</br>
 ![add-data-connection](images/add-data-connection.png)
 
 Configure the data connection with respective values and click _Add data connection_
-Note: the s3 endpoint might be different for your cluster. if you are not sure, keep
-it empty</br>
-![data-conn-config](images/data-conn-config.png)
+Note: the s3 endpoint might be different for your cluster. Usually, it is in the format s3.REGION.amazonaws.com</br>
+![data-conn-config](gif/data-connection.gif)
 
 <li>Next configure the server and **make sure** to make the route accessible externally.</li>
 
