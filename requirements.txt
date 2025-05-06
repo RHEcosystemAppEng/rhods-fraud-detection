@@ -1,7 +1,7 @@
-imbalanced-learn==0.10.1
-seaborn==0.12.2
-onnx==1.12.0
-openvino==2022.3.0
-openvino-dev==2022.3.0
-openvino-telemetry==2022.3.0
+imbalanced-learn==0.12.4
+seaborn==0.13.1
+onnx==1.17.0
+openvino==2024.6.0
+openvino-dev==2024.6.0
+openvino-telemetry==2024.5.0
 trino

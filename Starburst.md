@@ -88,7 +88,8 @@ Your AWS credentials **must** have read and write access to this bucket.
 
     Otherwise, log into the Web console of your Starburst Enterprise instance. After exposing it
     with a route, it should be available through the URL `http://starburst-web.<cluster_url>/ui/insights/ide`
-    and the configured credentials (`default user: admin`). At this point, you should see the query editor in the web ui
+    and the configured credentials (`default user: admin`). At this point, you should see the query editor in the web ui.
+    Note: if your browser redirects the http route to https then you need to allow http for starburst else the catalogs won't load.
 
 <!-- # TODO: update webui.png to include postgres catalog inc luster explorer -->
 ![SEP Web UI](./images/sep_webui.png)

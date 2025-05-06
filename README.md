@@ -31,7 +31,7 @@ cluster as if it were your user (for the purpose of automations). This is a
 common paradigm with OpenShift and Kubernetes.
 
 ### Step 1: Create Data science project
-We can either Launch Jupyter notebook or create a Data science (DS) project which in turn would use Jupyter notebook. Here we will create a DS project just to keep different projects organised along with their resources.
+We can either Launch standalone workbench or create a Data science (DS) project . Here we will create a DS project just to keep different projects organised along with their resources.
 
 ![create a Data science (DS) project](images/click-DS-project.png)
 
@@ -51,7 +51,8 @@ We will create a workbench within our `credit-card-fraud` DS project. This workb
 click _Create workbench_.
 
 ![workbench-details](images/workbench-details.png)
-Give it a minute, it will create the workbench for you. Once created click _open_
+
+Give it a minute, it will create the workbench for you. Once created click _the workbench name_
 ![notebook](images/click-open.png)
 Login and click _Allow selected permissions_
 ![allow-permissions](images/allow-permission.png)
