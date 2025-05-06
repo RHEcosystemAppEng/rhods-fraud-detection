@@ -11,8 +11,14 @@ Note: the s3 endpoint might be different for your cluster. Usually, it is in the
 
 <li>Deploy the model to be served and **make sure** to make the route accessible externally.</li>
 
-Click _Deploy_</br>
-![configure-server](gif/deploy-model.gif)
+  - Model deployment name: `credit-card-fraud-model`
+  - Serving runtime: `OpenVino Model Serve`
+  - Model framework: `openvino_ir`
+  - Deployment model: `Standard`
+  - Path: `models/default`
 
-Copy the inference link and head back to the [Notebook.ipynb](Notebook.ipynb)
+Click _Deploy_</br>
+![configure-server](images/deploy-model.png)
+
+Copy the inference link, the model deployment name and head back to the [Notebook.ipynb](Notebook.ipynb)
 </ol>
