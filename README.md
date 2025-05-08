@@ -66,7 +66,7 @@ Click the Git icon and then click _Clone a Repository_.
 In the window that pops up, copy the Git URL for this repository and paste it into the box:
 
 ```
-https://github.com/RHEcosystemAppEng/RHOAI-fraud-detection
+https://github.com/RHEcosystemAppEng/rhods-fraud-detection
 ```
 
 Then, click _CLONE_.
@@ -76,7 +76,7 @@ In the file browser, you will now see a folder for the repository that was clone
 ![Cloned Files](images/cloned-files.png)
 
 ### Open the Notebook
-At this point you should double-click on the `RHOAI-fraud-detection` folder in
+At this point you should double-click on the `rhods-fraud-detection` folder in
 the file explorer, and then double-click on the [Notebook.ipynb](./Notebook.ipynb)
 notebook file. Begin to follow the instructions in that notebook.
 
