@@ -1,27 +1,27 @@
-# Fraud Detection with Red Hat OpenShift Data Science
-Red Hat OpenShift Data Science is a managed cloud service for data scientists
+# Fraud Detection with Red Hat OpenShift AI
+Red Hat OpenShift AI is a managed cloud service for data scientists
 and developers of intelligent applications. It provides a fully supported
 environment in which to rapidly develop, train, and test machine learning (ML)
 models in the public cloud before deploying in production.
 
-The content in this repository describes how to use OpenShift Data Science to
+The content in this repository describes how to use OpenShift AI to
 train and test a relatively simplistic fraud detection model. In exploring this
-content, you will become familiar with the OpenShift Data Science offering and
-common workflows to use with it. This repo uses RHODS ModelMesh to deploy the
+content, you will become familiar with the OpenShift AI offering and
+common workflows to use with it. This repo uses RHOAI ModelMesh to deploy the
 model which uses OpenVino Model Server (OVMS) under the hood.
 
 This version of the demonstration showcases several important tools for data science workflows in Starburst. The demonstration covers reading/writing from AWS S3, writing federated queries from multiple data sources, and utilizing materialized views.
 
-## Access OpenShift Data Science
+## Access OpenShift AI
 **IMPORTANT!!**
 
 In order to use the content in this repository, you need to already have access
-to an OpenShift Data Science environment. You can have access in two ways:
-1. Bring your own Openshift (BYOO) cluster and then [install](https://access.redhat.com/documentation/en-us/red_hat_openshift_data_science_self-managed/1.28/html/installing_openshift_data_science_self-managed/installing-openshift-data-science-on-openshift-container-platform_install) RHODS in it.
-2. Another and the easier way would be to use Red Hat Demo Platoform (RHDP) and provision this [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link). This workshop will install RHODS, Starburst, setup S3 bucket with data and setup Starburst with a proper license to access it. When using workshop make sure to skip the optional steps throught this repository which are marked with the phrase "optional when using demo.redhat.com ..."
+to an OpenShift AI environment. You can have access in two ways:
+1. Bring your own Openshift (BYOO) cluster and then [install](https://access.redhat.com/documentation/en-us/red_hat_openshift_data_science_self-managed/1.28/html/installing_openshift_data_science_self-managed/installing-openshift-data-science-on-openshift-container-platform_install) RHOAI in it.
+2. Another and the easier way would be to use Red Hat Demo Platoform (RHDP) and provision this [workshop](https://demo.redhat.com/catalog?item=babylon-catalog-prod/sandboxes-gpte.ocp4-workshop-fraud-detection.prod&utm_source=webapp&utm_medium=share-link). This workshop will install RHOAI, Starburst, setup S3 bucket with data and setup Starburst with a proper license to access it. When using workshop make sure to skip the optional steps throught this repository which are marked with the phrase "optional when using demo.redhat.com ..."
 
 Using the access credentials provided
-to you, log into the OpenShift Data Science portal by following the _ODS
+to you, log into the OpenShift AI portal by following the _ODS
 Dashboard_ link. 
 
 Use the `Username` and `Password` details you were provided. When you see the
@@ -66,7 +66,7 @@ Click the Git icon and then click _Clone a Repository_.
 In the window that pops up, copy the Git URL for this repository and paste it into the box:
 
 ```
-https://github.com/RHEcosystemAppEng/rhods-fraud-detection
+https://github.com/RHEcosystemAppEng/RHOAI-fraud-detection
 ```
 
 Then, click _CLONE_.
@@ -76,7 +76,7 @@ In the file browser, you will now see a folder for the repository that was clone
 ![Cloned Files](images/cloned-files.png)
 
 ### Open the Notebook
-At this point you should double-click on the `rhods-fraud-detection` folder in
+At this point you should double-click on the `RHOAI-fraud-detection` folder in
 the file explorer, and then double-click on the [Notebook.ipynb](./Notebook.ipynb)
 notebook file. Begin to follow the instructions in that notebook.
 
